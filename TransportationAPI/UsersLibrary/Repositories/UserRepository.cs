@@ -13,11 +13,12 @@ namespace UsersLibrary.Repositories
     {
         SqlConnection conn = new SqlConnection("Data Source=HYD-8G9ZNW3\\MSSQLSERVER1;Initial Catalog=User;Integrated Security=True");
         SqlCommand command = null;
-        public bool Login(Users User)
+        public bool Login(Users user)
         {
             try
             {
-                command = new SqlCommand($"Select * from [Users] where Email = {User.Email} and Password = {User.Password}", conn);
+                conn.Open();
+                command = new SqlCommand($"Select * from Users where Email = '{user.Email}' and Password = '{user.Password}'", conn);
                 SqlDataReader reader = command.ExecuteReader();
                 //Users user = new Users();
                 if (reader.HasRows)
@@ -47,8 +48,8 @@ namespace UsersLibrary.Repositories
 
             try
             {
-                command = new SqlCommand($"Insert into [Users](Name, Email, Password) values('{user.Name}', '{user.Email}', '{user.Password}')", conn);
                 conn.Open();
+                command = new SqlCommand($"Insert into Users values('{user.Name}', '{user.Email}', '{user.Password}')", conn);
                 command.ExecuteNonQuery();
             }
             catch (Exception)
