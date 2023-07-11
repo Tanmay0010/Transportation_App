@@ -11,7 +11,7 @@ namespace UsersLibrary.Repositories
 {
     public class UserRepository : IUserContract
     {
-        SqlConnection conn = new SqlConnection("Data Source=HYD-8G9ZNW3\\MSSQLSERVER1;Initial Catalog=User;Integrated Security=True");
+        SqlConnection conn = new SqlConnection("Data Source=HYD-B99ZNW3\\SQLEXPRESS;Initial Catalog=User;Integrated Security=True");
         SqlCommand command = null;
         public bool Login(Users user)
         {
