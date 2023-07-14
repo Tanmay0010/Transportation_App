@@ -12,7 +12,7 @@ namespace DataLibary.Repositories
 {
     public class CarRepositiory : ICarContracts
     {
-        SqlConnection connection = new SqlConnection("Data Source=HYD-B99ZNW3\\SQLEXPRESS;Initial Catalog=Transport;Integrated Security=True");
+        SqlConnection connection = new SqlConnection("Data Source=HYD-9CLLNW3\\SQLEXPRESS;Initial Catalog=Transport;Integrated Security=True");
         SqlCommand command = null;
         public void AddCar(Car car)
         {
